@@ -18,6 +18,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Menu"
+            android:label="Menu Activity"
+            android:parentActivityName=".Menu" />
+        <activity
+            android:name=".Groom"
+            android:label="Grooming Activity"
+            android:parentActivityName=".Menu" />
+        <activity
+            android:name=".Stuff"
+            android:label="Stuff Activity"
+            android:parentActivityName=".Menu"/>
+        <activity
+            android:name=".History"
+            android:label="Order History"
+            android:parentActivityName=".Menu"/>
     </application>
 
 </manifest>
