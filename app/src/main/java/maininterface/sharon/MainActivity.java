@@ -1,125 +1,89 @@
 package maininterface.sharon;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import com.google.android.material.navigation.NavigationView;
-import com.huawei.agconnect.appmessaging.AGConnectAppMessaging;
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
-import com.huawei.hms.aaid.HmsInstanceId;
-import com.huawei.hms.aaid.entity.AAIDResult;
+import com.huawei.hms.common.ApiException;
+import com.huawei.hms.support.account.AccountAuthManager;
+import com.huawei.hms.support.account.request.AccountAuthParams;
+import com.huawei.hms.support.account.request.AccountAuthParamsHelper;
+import com.huawei.hms.support.account.result.AuthAccount;
+import com.huawei.hms.support.account.service.AccountAuthService;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private CardView groomingcard,stuffcard, historycard, decidecard;
-    private DrawerLayout dl;
-    private ActionBarDrawerToggle abdt;
-    private static final String TAG = "AppMessaging";
-    private AGConnectAppMessaging appMessaging;
+
+public class MainActivity extends AppCompatActivity {
+    private AccountAuthService mAuthService;
+    private AccountAuthParams mAuthParam;
+    private static final int REQUEST_CODE_SIGN_IN = 1000;
+    private static final String TAG = "Login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        dl=(DrawerLayout) findViewById(R.id.dl);
-        abdt= new ActionBarDrawerToggle(this,dl,R.string.Open, R.string.Close);
-        abdt.setDrawerIndicatorEnabled(true);
-        dl.addDrawerListener(abdt);
-        abdt.syncState();
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        final NavigationView nav_view = (NavigationView) findViewById(R.id.nav_view);
-
-        nav_view.setNavigationItemSelectedListener (new NavigationView.OnNavigationItemSelectedListener()
-        {
+        setContentView(R.layout.activity_login);
+        findViewById(R.id.HuaweiIdAuthButton).setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int id =item.getItemId();
-
-                if (id==R.id.profile)
-                {
-                    Toast.makeText(MainActivity.this,"Profile",Toast.LENGTH_SHORT).show();
-                }
-                if (id==R.id.payment)
-                {
-                    Toast.makeText(MainActivity.this,"Payment",Toast.LENGTH_SHORT).show();
-                }
-                if (id==R.id.profile)
-                {
-                    Toast.makeText(MainActivity.this,"Settings",Toast.LENGTH_SHORT).show();
-                }
-                if (id==R.id.logout)
-                {
-                    Toast.makeText(MainActivity.this,"Logout",Toast.LENGTH_SHORT).show();
-                }
-                return true;
+            public void onClick(View v) {
+                silentSignInByHwId();
             }
         });
+    }
 
 
-        setTitle("Purr-fect Pets");
+    /**
+     * Silent sign-in: If a user has authorized your app and signed in, no authorization or sign-in screen will appear during subsequent sign-ins, and the user will directly sign in.
+     * After a successful silent sign-in, the HUAWEI ID information will be returned in the success event listener.
+     * If the user has not authorized your app or signed in, the silent sign-in will fail. In this case, your app will show the authorization or sign-in screen to the user.
+     */
+    private void silentSignInByHwId() {
+        mAuthParam = new AccountAuthParamsHelper(AccountAuthParams.DEFAULT_AUTH_REQUEST_PARAM)
+                .setEmail()
+                .setIdToken()
+                .createParams();
 
-        groomingcard = (CardView) findViewById(R.id.grooming);
-        stuffcard = (CardView) findViewById(R.id.stuff);
-        historycard = (CardView) findViewById(R.id.history);
-        decidecard = (CardView) findViewById(R.id.decide);
-        //add click listener to card
-        groomingcard.setOnClickListener(this);
-        stuffcard.setOnClickListener(this);
-        historycard.setOnClickListener(this);
-        decidecard.setOnClickListener(this);
+        mAuthService = AccountAuthManager.getService(this, mAuthParam);
 
-        //get your device's aaid for testing asynchronously
-        HmsInstanceId inst  = HmsInstanceId.getInstance(this);
-        Task<AAIDResult> idResult =  inst.getAAID();
-        idResult.addOnSuccessListener(new OnSuccessListener<AAIDResult>() {
+        Task<AuthAccount> task = mAuthService.silentSignIn();
+        task.addOnSuccessListener(new OnSuccessListener<AuthAccount>() {
             @Override
-            public void onSuccess(AAIDResult aaidResult) {
-                String aaid = aaidResult.getId();
-                //textView.setText(aaid);
-                Log.d(TAG, "getAAID success:" + aaid );
-
+            public void onSuccess(AuthAccount authAccount) {
+                // The silent sign-in is successful. Process the returned AuthAccount object to obtain the HUAWEI ID information.
+                dealWithResultOfSignIn(authAccount);
             }
-        }).addOnFailureListener(new OnFailureListener() {
+        });
+        task.addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(Exception e) {
-                Log.d(TAG, "getAAID failure:" + e);
+                // The silent sign-in fails. Your app will call getSignInIntent() to show the authorization or sign-in screen.
+                if (e instanceof ApiException) {
+                    ApiException apiException = (ApiException) e;
+                    Intent signInIntent = mAuthService.getSignInIntent();
+                    startActivityForResult(signInIntent, REQUEST_CODE_SIGN_IN);
+                }
             }
         });
-
-        appMessaging = AGConnectAppMessaging.getInstance();
-
     }
 
-    @Override
-    public boolean onOptionsItemSelected (MenuItem item) {
-        return abdt.onOptionsItemSelected(item)||super.onOptionsItemSelected(item);
-    }
+    /**
+     * Process the returned AuthAccount object to obtain the HUAWEI ID information.
+     *
+     * @param authAccount AuthAccount object, which contains the HUAWEI ID information.
+     */
+    private void dealWithResultOfSignIn(AuthAccount authAccount) {
+        Log.i(TAG, "idToken:" + authAccount.getIdToken());
+        Log.i(TAG, "Name:" + authAccount.getDisplayName());
+        Log.i(TAG, "Email:" + authAccount.getEmail());
 
-    @Override
-    public void onClick(View view) {
         Intent i;
-        switch (view.getId()) {
-            case R.id.grooming: i= new Intent(this,Groom.class);startActivity(i); break;
-            case R.id.stuff : i= new Intent(this,Stuff.class);startActivity(i);break;
-            case R.id.history : i= new Intent(this,History.class);startActivity(i);break;
-            //case R.id.decide : i= new Intent(this,Decide.class);break;
-            default: break;
-        }
-
+        i= new Intent(this,Menu.class);
+        startActivity(i);
     }
 
 

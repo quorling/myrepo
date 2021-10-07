@@ -11,4 +11,5 @@ public class Stuff extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_stuff);
     }
+
 }
