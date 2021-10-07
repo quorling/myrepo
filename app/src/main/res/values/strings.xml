@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PetsApp</string>
+    <string name="Open">PetsApp</string>
+    <string name="Close">PetsApp</string>
+</resources>
