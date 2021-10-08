@@ -16,10 +16,32 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    signingConfigs {
+        release {
+            storeFile file { "Pet.jks" }
+            storePassword "123456"
+            keyAlias "Pet"
+            keyPassword "123456"
+            v2SigningEnabled true
+        }
+        config {
+            keyAlias 'Pet'
+            storeFile file('app/Pet.jks')
+            storePassword '123456'
+            keyPassword '123456'
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
         }
     }
     compileOptions {
@@ -39,6 +61,7 @@ dependencies {
     implementation 'com.huawei.agconnect:agconnect-core:1.6.0.300'
     implementation 'com.huawei.agconnect:agconnect-appmessaging:1.6.0.300'
     implementation "androidx.cardview:cardview:1.0.0"
-    implementation 'com.huawei.hms:hwid:6.1.0.302'
+    implementation 'com.huawei.hms:hwid:6.1.0.302' //ACCOUNT KIT
     implementation 'com.huawei.hms:hianalytics:6.2.0.301'
+    implementation 'com.huawei.hms:site:6.0.1.303' //SITE KIT
 }
