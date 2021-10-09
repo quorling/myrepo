@@ -1,11 +1,12 @@
 package maininterface.sharon;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-
-import androidx.appcompat.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.huawei.hmf.tasks.OnFailureListener;
 import com.huawei.hmf.tasks.OnSuccessListener;
@@ -80,6 +81,8 @@ public class MainActivity extends AppCompatActivity {
         Log.i(TAG, "idToken:" + authAccount.getIdToken());
         Log.i(TAG, "Name:" + authAccount.getDisplayName());
         Log.i(TAG, "Email:" + authAccount.getEmail());
+
+        Toast.makeText(MainActivity.this,"Welcome, " + authAccount.getDisplayName(),Toast.LENGTH_SHORT).show();
 
         Intent i;
         i= new Intent(this,Menu.class);
