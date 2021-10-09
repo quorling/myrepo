@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">PetsApp</string>
-    <string name="Open">PetsApp</string>
-    <string name="Close">PetsApp</string>
-    <string name="welcome">Welcome</string>
+    <string name="app_name">Purr-fect Pets</string>
+    <string name="Open">Purr-fect Pets</string>
+    <string name="Close">Purr-fect Pets</string>
 </resources>
