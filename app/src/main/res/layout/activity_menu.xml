@@ -164,7 +164,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/decide"
+                    android:id="@+id/searchaddress"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:clickable="true"
                     android:layout_width="160dp"
@@ -186,7 +186,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Soon to decide"
+                            android:text="Store Directory"
                             android:textStyle="bold"></TextView>
 
                         <View
@@ -199,7 +199,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="5dp"
-                            android:text="Get Sparkling Clean and New haircut"
+                            android:text="Search for Pet Store around you"
                             android:textColor="@color/darkgray"></TextView>
                     </LinearLayout>
 
