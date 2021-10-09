@@ -20,13 +20,17 @@ import com.huawei.hmf.tasks.OnSuccessListener;
 import com.huawei.hmf.tasks.Task;
 import com.huawei.hms.aaid.HmsInstanceId;
 import com.huawei.hms.aaid.entity.AAIDResult;
+import com.huawei.hms.support.account.request.AccountAuthParams;
+import com.huawei.hms.support.account.service.AccountAuthService;
 
 public class Menu extends AppCompatActivity implements View.OnClickListener {
-    private CardView groomingcard,stuffcard, historycard, decidecard;
+    private CardView groomingcard,stuffcard, historycard, searchaddresscard;
     private DrawerLayout dl;
     private ActionBarDrawerToggle abdt;
     private static final String TAG = "AppMessaging";
     private AGConnectAppMessaging appMessaging;
+    private AccountAuthService mAuthService;
+    private AccountAuthParams mAuthParam;
 
 
     @Override
@@ -64,7 +68,18 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
                 }
                 if (id==R.id.logout)
                 {
-                    Toast.makeText(Menu.this,"Logout",Toast.LENGTH_SHORT).show();
+                    Task<Void> signOutTask = mAuthService.signOut();
+                    signOutTask.addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Log.i(TAG, "signOut Success");
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(Exception e) {
+                            Log.i(TAG, "signOut fail");
+                        }
+                    });
                 }
                 return true;
             }
@@ -76,12 +91,12 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
         groomingcard = (CardView) findViewById(R.id.grooming);
         stuffcard = (CardView) findViewById(R.id.stuff);
         historycard = (CardView) findViewById(R.id.history);
-        decidecard = (CardView) findViewById(R.id.decide);
+        searchaddresscard = (CardView) findViewById(R.id.searchaddress);
         //add click listener to card
         groomingcard.setOnClickListener(this);
         stuffcard.setOnClickListener(this);
         historycard.setOnClickListener(this);
-        decidecard.setOnClickListener(this);
+        searchaddresscard.setOnClickListener(this);
 
         //get your device's aaid for testing asynchronously
         HmsInstanceId inst  = HmsInstanceId.getInstance(this);
@@ -117,7 +132,7 @@ public class Menu extends AppCompatActivity implements View.OnClickListener {
             case R.id.grooming: i= new Intent(this,Groom.class);startActivity(i); break;
             case R.id.stuff : i= new Intent(this,Stuff.class);startActivity(i);break;
             case R.id.history : i= new Intent(this,History.class);startActivity(i);break;
-            //case R.id.decide : i= new Intent(this,Decide.class);break;
+            case R.id.searchaddress : i= new Intent(this,SearchAddress.class);startActivity(i);break;
             default: break;
         }
 
