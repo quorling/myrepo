@@ -8,14 +8,13 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:id="@+id/dl">
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_height="match_parent"
+        >
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            xmlns:tools="http://schemas.android.com/tools"
-            xmlns:card_view="http://schemas.android.com/apk/res-auto"
             tools:context=".Menu"
             android:orientation="vertical"
             android:padding="10dp"
@@ -26,7 +25,8 @@
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="63dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/grooming"
@@ -43,9 +43,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:src="@drawable/cat"></ImageView>
+                            android:layout_width="69dp"
+                            android:layout_height="69dp"
+                            android:src="@drawable/doggroom"
+                            android:scaleType="fitXY"></ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -85,9 +86,10 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:src="@drawable/cat"></ImageView>
+                            android:layout_width="69dp"
+                            android:layout_height="69dp"
+                            android:scaleType="fitXY"
+                            android:src="@drawable/petstuff"></ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -119,15 +121,16 @@
                 android:layout_height="wrap_content"
                 android:clipToPadding="false"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="45dp">
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/history"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
                     android:layout_width="160dp"
                     android:layout_height="190dp"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -136,9 +139,9 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:src="@drawable/cat"></ImageView>
+                            android:layout_width="69dp"
+                            android:layout_height="69dp"
+                            android:src="@drawable/ic_baseline_history_24"></ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -165,11 +168,11 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/searchaddress"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
                     android:layout_width="160dp"
                     android:layout_height="190dp"
-                    android:layout_margin="10dp">
+                    android:layout_margin="10dp"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -178,9 +181,9 @@
                         android:orientation="vertical">
 
                         <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:src="@drawable/cat"></ImageView>
+                            android:layout_width="69dp"
+                            android:layout_height="69dp"
+                            android:src="@drawable/ic_baseline_store_mall_directory_24"></ImageView>
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -209,61 +212,15 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:orientation="horizontal">
-
-                <androidx.cardview.widget.CardView
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:layout_width="340dp"
-                    android:layout_height="150dp"
-                    android:layout_margin="10dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <ImageView
-                            android:layout_width="64dp"
-                            android:layout_height="64dp"
-                            android:src="@drawable/cat"></ImageView>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:text="Picture only "
-                            android:textStyle="bold"></TextView>
-
-                        <View
-                            android:layout_width="wrap_content"
-                            android:layout_height="1dp"
-                            android:background="@color/lightgray"></View>
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:text="Get Sparkling Clean and New haircut"
-                            android:textColor="@color/darkgray"></TextView>
-                    </LinearLayout>
-
-                </androidx.cardview.widget.CardView>
-
-
-
-            </LinearLayout>
+                android:background="@color/amber">
             <ImageView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="160dp"
-                android:src="@drawable/cat"
-                ></ImageView>
+                android:layout_marginTop="50dp"
+                android:src="@drawable/bottombanner"></ImageView>
+            </LinearLayout>
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"

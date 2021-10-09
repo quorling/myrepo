@@ -30,7 +30,7 @@
                 android:id="@+id/editText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="35dp"
+                android:layout_marginTop="38dp"
                 android:background="@drawable/et_style"
                 android:drawableLeft="@drawable/ic_baseline_search_24"
                 android:hint="Search here..."
@@ -52,12 +52,13 @@
                 android:gravity="right"
                 android:text="View All"
                 android:textSize="13dp"
-                android:textColor="@color/purple_500"></TextView>
+                android:textColor="@color/purple_500"
+                android:layout_marginRight="14dp"></TextView>
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="117dp"
-                android:layout_marginTop="64dp"
+                android:layout_marginTop="66dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/banner"></ImageView>
 
@@ -65,14 +66,14 @@
                 android:layout_width="180dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="12dp"
-                android:layout_marginTop="180dp"
-                android:text="Categories"
+                android:layout_marginTop="185dp"
+                android:text="@string/categories"
                 android:textStyle="bold"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="202dp">
+                android:layout_marginTop="207dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
@@ -147,7 +148,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="270dp">
+                android:layout_marginTop="265dp">
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="120dp"
