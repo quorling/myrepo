@@ -1,7 +1,746 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:background="@color/offwhite"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-</LinearLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/lightgray"
+                android:gravity="center"
+                android:padding="7.8dp"
+                android:text="@string/welcome"
+                android:textSize="15.5dp"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/editText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="35dp"
+                android:background="@drawable/et_style"
+                android:drawableLeft="@drawable/ic_baseline_search_24"
+                android:hint="Search here..."
+                android:padding="2dp"></EditText>
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="322dp"
+                android:text="Popular Products"
+                android:textStyle="bold"></TextView>
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginTop="324dp"
+                android:gravity="right"
+                android:text="View All"
+                android:textSize="13dp"
+                android:textColor="@color/purple_500"></TextView>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="117dp"
+                android:layout_marginTop="64dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/banner"></ImageView>
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="180dp"
+                android:text="Categories"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="202dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginLeft="15.4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/food"></ImageView>
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end"
+                        android:gravity="center"
+                        android:text="Food"></TextView>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="15.4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/toys"></ImageView>
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end"
+                        android:gravity="center"
+                        android:text="Toys"></TextView>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="15.4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/clothes"></ImageView>
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end"
+                        android:gravity="center"
+                        android:text="Clothes"></TextView>
+                </androidx.cardview.widget.CardView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="270dp">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="13dp"
+                    android:layout_marginLeft="15.4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/vitamin"></ImageView>
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end"
+                        android:gravity="center"
+                        android:text="Health"></TextView>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="15.4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/hygiene"></ImageView>
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end"
+                        android:gravity="center"
+                        android:text="Hygiene"></TextView>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="120dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="15.4dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/bed"></ImageView>
+
+                    <TextView
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="end"
+                        android:gravity="center"
+                        android:text="Beds"></TextView>
+                </androidx.cardview.widget.CardView>
+
+
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="345dp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom">
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="180dp"
+                        android:layout_height="245.9dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginLeft="15.4dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="60dp"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="9dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15.4dp"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="15.4dp"
+                                android:lineSpacingExtra="2.8sp"
+                                android:text="Fleas-free shampoo"
+                                android:textColor="#131314"
+                                android:textSize="16.2sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="15.4dp"
+                                android:layout_marginRight="15.4dp"
+                                android:lineSpacingExtra="2.6sp"
+                                android:text="Effectively removes fleas and keep them away from your furry friends!"
+                                android:textColor="#8f8f8f"
+                                android:textSize="13.4sp" />
+
+                            <RatingBar
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15.4dp"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="10dp"
+                                android:numStars="5"
+                                android:rating="4.8" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="15.4dp"
+                                android:src="@drawable/fleashampoo" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="180dp"
+                        android:layout_height="245.9dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginLeft="15.4dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="60dp"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="9dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15.4dp"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="15.4dp"
+                                android:lineSpacingExtra="2.8sp"
+                                android:text="Adjustable Leash"
+                                android:textColor="#131314"
+                                android:textSize="16.2sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="15.4dp"
+                                android:layout_marginRight="15.4dp"
+                                android:lineSpacingExtra="2.6sp"
+                                android:text="Leash is adjustable to suit your furry friends, tight sensation no more."
+                                android:textColor="#8f8f8f"
+                                android:textSize="13.4sp" />
+
+                            <RatingBar
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15.4dp"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="10dp"
+                                android:numStars="5"
+                                android:rating="4" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="15.4dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/leash" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="180dp"
+
+                        android:layout_height="245.9dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginEnd="16.8dp"
+                        android:layout_marginRight="16.8dp"
+
+                        android:layout_marginBottom="60dp"
+                        android:elevation="0dp"
+                        app:cardCornerRadius="9dp"
+                        app:cardElevation="0dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15.4dp"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="15.4dp"
+                                android:lineSpacingExtra="2.8sp"
+                                android:text="Vitamin-C"
+                                android:textColor="#131314"
+                                android:textSize="16.2sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="15.4dp"
+                                android:layout_marginRight="15.4dp"
+                                android:lineSpacingExtra="2.6sp"
+                                android:text="Vitamin-C is good to balance your furry friends nutrition"
+                                android:textColor="#8f8f8f"
+                                android:textSize="13.4sp" />
+
+                            <RatingBar
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="15.4dp"
+                                android:layout_marginLeft="15.4dp"
+                                android:layout_marginTop="10dp"
+                                android:numStars="5"
+                                android:rating="4.2" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="15.4dp"
+                                android:src="@drawable/vitamin" />
+                        </LinearLayout>
+                    </androidx.cardview.widget.CardView>
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="595dp"
+                android:text="Other Products"
+                android:textStyle="bold"></TextView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="615dp"
+                android:gravity="center"
+                android:clipToPadding="false">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_card1"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="80dp"
+                            android:src="@drawable/petbrush"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Pet Brush"
+                            android:textStyle="bold"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="4dp"></TextView>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/lightgray"></View>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:padding="5dp"
+                                android:text="RM10"
+                                android:textColor="@color/darkgray"></TextView>
+
+                            <RatingBar
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:numStars="5"
+                                android:rating="4"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="8dp"></RatingBar>
+
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/white"
+                            ></View>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="It comes with 4 vibrant colors for you to choo..."
+                            android:textColor="@color/darkgray"
+                            android:layout_gravity="start"></TextView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_card2"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="80dp"
+                            android:src="@drawable/hygiene"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Shampoo"
+                            android:textStyle="bold"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="4dp"></TextView>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/lightgray"></View>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:padding="5dp"
+                                android:text="RM10"
+                                android:textColor="@color/darkgray"></TextView>
+
+                            <RatingBar
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:numStars="5"
+                                android:rating="4"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="8dp"
+                            />
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/white"
+                            ></View>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:padding="5dp"
+                            android:text="This shampoo makes your furry friend stay..."
+                            android:textColor="@color/darkgray"></TextView>
+
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="820dp"
+                android:gravity="center"
+                android:clipToPadding="false">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_card3"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="80dp"
+                            android:src="@drawable/catsand"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Cat Litter Sand"
+                            android:textStyle="bold"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="4dp"></TextView>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/lightgray"></View>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:padding="5dp"
+                                android:text="RM10"
+                                android:textColor="@color/darkgray"></TextView>
+
+                            <RatingBar
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:numStars="5"
+                                android:rating="4"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="8dp"
+
+                              />
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/white"
+                            ></View>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Litter sand that cat likes it as well!"
+                            android:textColor="@color/darkgray"
+                            android:layout_gravity="start"></TextView>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/product_card4"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:layout_width="160dp"
+                    android:layout_height="190dp"
+                    android:layout_margin="10dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="fill_parent"
+                            android:layout_height="80dp"
+                            android:src="@drawable/leash2"></ImageView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="Leash"
+                            android:textStyle="bold"
+                            android:layout_gravity="start"
+                            android:layout_marginStart="4dp"></TextView>
+
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/lightgray"></View>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="left"
+                                android:padding="5dp"
+                                android:text="RM10"
+                                android:textColor="@color/darkgray"></TextView>
+
+                            <RatingBar
+                                style="?android:attr/ratingBarStyleSmall"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:numStars="5"
+                                android:rating="4"
+                                android:layout_marginStart="15dp"
+                                android:layout_marginTop="8dp"
+                              />
+
+                        </LinearLayout>
+                        <View
+                            android:layout_width="wrap_content"
+                            android:layout_height="1dp"
+                            android:background="@color/white"
+                            ></View>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:text="Easy to use and keep it away"
+                            android:textColor="@color/darkgray"
+                            android:layout_gravity="start"></TextView>
+                    </LinearLayout>
+
+                </androidx.cardview.widget.CardView>
+
+
+
+
+
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>>
+</RelativeLayout>
