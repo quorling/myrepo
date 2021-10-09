@@ -4,4 +4,70 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <androidx.cardview.widget.CardView
+        android:id="@+id/order2"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_margin="10dp"
+        android:clickable="true" >
+
+        <TextView
+            android:layout_width="381dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="01 October 2021"
+            android:textAlignment="center"
+            android:textSize="34sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tvDetails1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="40dp"
+            android:text="Service Type = Hair Cut" />
+
+        <TextView
+            android:id="@+id/tvDetails2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_marginLeft="40dp"
+            android:text="Person in charge = Jane Doe" />
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/order1"
+        android:layout_width="match_parent"
+        android:layout_height="190dp"
+        android:layout_margin="10dp"
+        android:clickable="true" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:layout_marginTop="10dp"
+            android:text="25 September 2021"
+            android:textAlignment="center"
+            android:textSize="34sp"
+            android:textStyle="bold"></TextView>
+
+        <TextView
+            android:id="@+id/tvDetails3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
+            android:layout_marginLeft="40dp"
+            android:text="Service Type = Washing" />
+
+        <TextView
+            android:id="@+id/tvDetails4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            android:layout_marginLeft="40dp"
+            android:text="Person in charge = John Doe" />
+    </androidx.cardview.widget.CardView>
+
 </LinearLayout>
